@@ -1,0 +1,10 @@
+<html><head></head><body><version>{{ content | trim }}</version>
+{% if site.google_analytics %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('event', 'page_view', '/EMWChromeExtVer'); 
+gtag('config','{{ site.google_analytics }}');
+</script>
+{% endif %}
+</body></html>

@@ -1,0 +1,61 @@
+---
+layout: default
+title: 404 - Page Not Found
+permalink: /404.html
+---
+<!-- <html>
+<head>
+    <title>{{ page.title }}</title>
+</head>
+<body> -->
+<style>
+hr.grad {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #8df, #000, #8df);
+}
+div.grad {
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgb(198, 244, 255) 100%); 
+}
+div.fixed, span.fixed {
+    font-size: smaller;
+    font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace; 
+}
+/* div.vSpace {
+    height: 80%;
+} */
+</style>
+<div class="grad" style="height:100%">
+    <h2>Error: {{ page.title }}</h2>
+    <hr class="grad" width="60%" align="center">
+    <div>Cannot find the file specified: <span id="PathName" class="fixed">placeholder</span></div>
+    <br>
+    <div class="fixed vSpace">
+        <span id="FullURL">placeholder</span>
+    </div>
+    <div id="spacer"> &nbsp; </div>
+    <hr class="grad">
+    <div style="text-align: right; color: #888;">
+        {{ page.path }} &nbsp; &nbsp; &nbsp; 
+    </div>
+</div>
+<script>
+    window.onload = () => {
+        document.getElementById("PathName").innerText = window.location.pathname;
+        document.getElementById("FullURL").innerText = window.location.href;
+        padPage(document.documentElement.scrollHeight - 200);
+    };
+    function padPage(height) {
+        var spacer = document.getElementById("spacer")
+        var div = document.createElement("div");
+        div.innerHTML = "<br>";
+        spacer.appendChild(div);
+        while (div.offsetTop < height) {
+            div = document.createElement("div");
+            div.innerHTML = "<br>";
+            spacer.appendChild(div);
+        }
+    }
+</script>
+<!-- </body>
+</html> -->

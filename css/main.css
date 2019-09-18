@@ -1,0 +1,158 @@
+body {
+    font-family: Roboto, system-ui, sans-serif;
+    background: #0a0;
+}
+
+.main-outer {
+    width: 500px;
+    margin: 2px;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom right, #fff, #ccc);
+}
+
+.main-inner {
+    padding: 3px;
+    overflow: hidden;
+    max-height: 500px;
+}
+
+.scrolly { 
+    overflow-y: scroll;
+    max-height: 300px;
+    overflow-x: hidden;
+}
+
+.main-title {
+    display: inline-block;
+    width: 87%;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.main-language-icon {
+    display: inline-flex;
+    width: 5%;
+    text-align: right;
+    font-size: large;
+    cursor: pointer;
+}
+
+.main-settings-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 7px;
+    background-image: url("../images/settings.png");
+    background-size: 16px 16px;
+    cursor: pointer;
+}
+
+.main-about-text {
+    width: 99%;
+    margin-top: -20px;
+    text-align: right;
+    font-size: large;
+}
+
+.right {
+    text-align: right;
+}
+
+.heading {
+    width: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    background-image: linear-gradient(to bottom right, #fff, #ddd);
+}
+
+.bookmarkRow {
+    display: inline-flex;
+    vertical-align:top;
+    width: 100%;
+    padding: 4px 2px 2px 2px;
+    height: 12px;
+}
+
+.del {
+    cursor: pointer;
+    width: 15px;
+}
+
+.bookmarkName {
+    width: 90%;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.statusBar {
+    width: 100%;
+}
+
+.statusMsg{
+    width: 100%;
+    background-image: linear-gradient(to bottom right, #cfc, #9c9);
+}
+
+.newVersion {
+    width: 100%;
+    font-size: 12pt;
+    background-image: linear-gradient(to bottom right, #fcc, #c99);
+}
+
+.btn {
+    background-image: linear-gradient(to bottom, #7cd87c 0%, #61a661 100%);
+    border-color: #3e8f3e;
+    border-radius: 5px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.inputs:invalid:required {
+    background-color: #fdd;
+}
+.inputs:valid {
+    background-color: #dfd;
+}
+
+.bulkpanel { 
+    zposition: absolute;
+    zwidth: 90%;
+    ztop: 20px;
+    zleft: 20px;
+    background-image: linear-gradient(to bottom, #dfd 0%, #afa 90%);
+}
+
+.bulkInput {
+    font-family: PT Mono, Roboto, system-ui, sans-serif;
+    font-size: 10pt;
+    width: 98%;
+    height: 430px;
+    margin: 2px;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom right, #fff, #cfc);
+}
+
+.inline-flex {
+    display: inline-flex;
+    width: 48%;
+}
+
+.toggleBtn {
+    width: 200px;
+    vertical-align:top;
+    margin-top: -2px;
+}
+
+.grayGradient {
+    background-image: linear-gradient(to bottom right, #fff, #ccc);
+}
