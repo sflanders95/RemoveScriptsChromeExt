@@ -5,126 +5,87 @@
   <script src="../js/jquery-3.3.1.min.js" lang="javascript"></script>
   <script src="../js/main.js" lang="javascript"></script>
   <script src="../js/options.js" lang="javascript"></script>
-  <link rel="stylesheet" href="../css/main.css"/>
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css"></link>
+  <link rel="stylesheet" type="text/css" href="../css/main.css"/>
 </head>
 <body>
-<aform id="EmpireMillenniumWarsForm">
+<aform id="dafrm">
 
 <div class="main-outer">
   <div class="main-inner">
     <div class="main-settings-icon" id="divSettings" title="Settings"></div>
-    <div class="main-title">Empire Millennium Wars Addons</div>
+    <div class="main-title">Script and Tag helper/remover</div>
     <div class="main-language-icon" id="divLang">🇺🇸</div>
   </div>
 </div>
 
-<div id="pnlBookMkMain">
+<div id="pnlMain">
 <div class="main-outer">
   <div class="main-inner">
 
     <div class="inline-flex">  
-    <div id="divNewBookmark" class="heading">New Bookmark:</div>
-      <div class="right toggleBtn"><span id="btnOpenBulk" class="link pointer" 
-          title="Open Bulk Input Screen">Goto Bulk Input</span></span></div>
+    <div id="divNewBookmark" class="heading">Actions:</div>
+      <!-- <div class="right toggleBtn"><span id="btnOpenBulk" class="link pointer" 
+          title="Open Bulk Input Screen">Goto Bulk Input</span></span></div> -->
     </div>      
     
     <div>
-      <input type="text" id="txtBMName" maxlength="20" size="20" placeholder="Enter bookmark name" 
-        title="Bookmark Name (at least 3 chars)" class="inputs" pattern=".{3,20}" required>
-      <label for="txtCoordX">X:</label><input type="text" id="txtCoordX" maxlength="3" size="5" 
-        placeholder="0" title="X Coordinate" class="inputs" pattern="[0-9]{1,3}" required>
-      <label for="txtCoordY">Y:</label><input type="text" id="txtCoordY" maxlength="3" size="5" 
-        placeholder="0" title="Y Coordinate" class="inputs" pattern="[0-9]{1,3}" required> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      <button id="btnAdd" title="Add to list" class="btn">Add To List</button>
+      Choose the tags that you wish to remove from the current document:
     </div>
-  </div>
-</div>
-
-<div class="main-outer">
-  <div class="main-inner">
-    <div id="divBookmarks" class="heading">Bookmarks:</div>
-    <div id="divBookmarkList" class="scrolly"></div>
-    <div id="divRawData" class=""></div>
-  </div>
-</div>
-</div>
-
-<div id="pnlBookMkBulk">
-<div class="main-outer">
-  <div class="main-inner">
-
-    <div class="inline-flex">  
-    <div id="divBulkEditLbl" class="heading">Bulk Edit:</div>  
-      <div class="right toggleBtn"><span id="btnCloseBulk" class="link pointer" 
-          title="Return to Normal Input Screen">Exit Bulk Input</span></span></div>
+    <br/>
+    <div>
+      <div class="checkboxContainer"><input type="checkbox" checked id="cbscript"> <label for="cbscript"> &lt;script&gt; </label></div>
+      <div class="checkboxContainer"><input type="checkbox" checked id="cbiframe"> <label for="cbiframe"> &lt;iframe&gt; </label></div>
+      <div class="checkboxContainer"><input type="checkbox" checked id="cbvideo"> <label for="cbvideo"> &lt;video&gt; </label></div>
     </div>
-
-    <textarea id="txtAreaBulk" class="bulkInput"></textarea>
+    <br/>
+    <div>
+      <div class="checkboxContainer"><input type="checkbox" id="cbembed"> <label for="cbembed"> &lt;embed&gt; </label></div>
+      <div class="checkboxContainer"><input type="checkbox" id="cbstyle"> <label for="cbstyle"> &lt;style&gt; </label></div>
+      <div class="checkboxContainer"><input type="checkbox" id="cblink"> <label for="cblink"> &lt;link&gt; </label></div>
+    </div>
     <div class="right">
-    <button id="btnBulkSave" class="btn right" title="Save Bulk Data">💾  Save Bulk Data</button>
+      <button id="btnRemove" title="Removed Selected Html Tags" class="btn">Remove Tags</button>
     </div>
-</div>
-</div>
-</div>
-
-<div id="pnlGenSettings">
-<style>input.numberFnt{font-size:14px;width:50px;}</style>
-<div class="main-outer">
-  <div class="main-inner">
-    <div id="divGeneralLbl" class="heading">General Settings:</div>
-    <fieldset>
-      <legend>Chat Font Size:</legend>
-      <input id="udFontSize" class="numberFnt" type="number" min="6" max="48" step="1" value="14">
-      <button id="btnFontSize">Set Font Size</button>
-    </fieldset>
-    
-    <fieldset>
-      <style>label.lblTop{display:block;width:100%;text-align:center;}div.divCells{display:inline-block}</style>
-      <legend>Distance Calculator:</legend>
-      <div class="divCells">
-      <label for="numX0" class="lblTop">(X<sub>0</sub></label>
-      (<input type="text" id="numX0" class="numberFnt input" maxlength="4" size="5" pattern="[-][0-9]{1,3}" title="Position X">
-      </div><div class="divCells">
-      <div class="divCells">
-      <label for="numY0" class="lblTop">Y<sub>0</sub>)</label>
-      <input type="text" id="numY0" class="numberFnt input" maxlength="4" size="5" pattern="-[0-9]{1,3}" title="Position Y">)
-      </div> &nbsp; &nbsp; <div class="divCells">
-      <label for="numX1" class="lblTop">(X<sub>1</sub></label>
-      (<input type="text" id="numX1" class="numberFnt input" maxlength="4" size="5" pattern="-[0-9]{1,3}" title="Position X1">,
-      </div><div class="divCells">
-      <label for="numY1" class="lblTop">Y<sub>1</sub>)</label>
-      <input type="text" id="numY1" class="numberFnt input" maxlength="4" size="5" pattern="-[0-9]{1,3}" title="Position Y1">)
-      </div> &nbsp; &nbsp; &nbsp; &nbsp; <div class="divCells">
-      <label for="numDist" class="lblTop">Distance</label>
-      <!-- <div id="numDist" class="numberFnt grayGradient">Distance...</div> -->
-      <input id="numDist" class="numberFnt grayGradient" type="text" value="0" size="20" style="width:unset" readonly>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Copy Chat to New Tab</legend>
-      <div class="inline-flex">This button captures the games chat window and creates a new tab with the contents</div>
-      <div class="inline-flex"><button id="btnCaptureChat">Capture Chat Window</button></div>
-      <div class="" id="divChatStatus"></div>
-    </fieldset>
-
   </div>
 </div>
-</div><!-- pnlGenSettings -->
+
+<div class="main-outer">
+  <div class="main-inner">
+    <div id="divBookmarks" class="heading">Status:</div>
+    <div class="leftMargin10">
+      <span id="totscript">0</span> script tags removed.  <span id="remscript">0</span> found.
+    </div>
+    <div class="leftMargin10">
+      <span id="totiframe">0</span> iframe tags removed.  <span id="remiframe">0</span> found.
+    </div>
+    <div class="leftMargin10">
+      <span id="totvideo">0</span> video tags removed.  <span id="remvideo">0</span> found.
+    </div>
+    <div class="leftMargin10">
+      <span id="totembed">0</span> embed tags removed.  <span id="remembed">0</span> found.
+    </div>
+    <div class="leftMargin10">
+      <span id="totstyle">0</span> style tags removed.  <span id="remstyle">0</span> found.
+    </div>
+    <div class="leftMargin10">
+      <span id="totlink">0</span> link tags removed.  <span id="remlink">0</span> found.
+    </div>
+    <div><br/></div>
+  </div>
+</div>
+</div>
+
 
     <br/>
     <!-- <input type=button id="btnTest" value="test"><br/> -->
     
-    <div id="divNewVersion" class="newVersion"></div>
-
     <div id="divStatus" class="statusBar"></div>
  
     <div id="divDEBUG">
       <div id="divLOG"><h2>Debug Log</h2></div>
     </div>
 </aform>
-<iframe id="gtag" src="https://sflanders95.github.io/EmpireMillenniumChromeExt/EMWChromeExtVer" style="width:2px;height:3px;position:absolute;left:-50px"></iframe>
+<!-- <iframe id="gtag" src="https://sflanders95.github.io/EmpireMillenniumChromeExt/EMWChromeExtVer" style="width:2px;height:3px;position:absolute;left:-50px"></iframe> -->
 
 </body>
 </html>

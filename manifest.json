@@ -1,28 +1,21 @@
 {
-    "name": "EmpireMillenniumChromeExt",
+    "name": "Remove Tags from HTML",
     "version": "1.0",
     "author": "Steven Flanders",
-    "description": "Generic html/javascript tools to extend the game.",
+    "description": "Generic html/javascript tools to easily remove script and iframe tags from a page.",
     "permissions": ["activeTab", "declarativeContent", "storage", "*://*/* "],
     "background": {
       "background_comment": "This section was used for the chat blocking. This feature is currently tabled.",
       "scripts": ["js/background.js"],
-      "matches": ["https://game.empiremillenniumwars.com/*",
-                  "https://game.empireww3.com/*",
-                  "https://empireww3.com/",
-                  "https://empiremillenniumwars.com/*",
-                  "https://static.lp.goodgamestudios.com/*"],
+      "matches": ["*://*/*", "https://sflanders-pc.rediscov.local/*"],
       "persistent": false,
       "all_frames": true
     },
     "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
     "browser_action": {
-      "matches": ["https://game.empiremillenniumwars.com/*",
-                  "https://game.empireww3.com/*",
-                  "https://empireww3.com/",
-                  "https://empiremillenniumwars.com/*",
-                  "https://static.lp.goodgamestudios.com/*"],
-      "default_title": "Empire Millennium Wars Bookmarks",
+      "matches": ["*://*/*",
+                  "https://sflanders-pc.rediscov.local/*"],
+      "default_title": "Remove Tags from HTML",
       "default_popup": "html/main.html",
       "scripts": ["js/main.js",
                   "js/options.js",
@@ -39,20 +32,9 @@
     },
     "content_scripts": [
       {
-        "matches": ["file://*",
-                    "https://game.empiremillenniumwars.com/*",
-                    "https://game.empireww3.com/*",
-                    "https://empireww3.com/",
-                    "https://empiremillenniumwars.com/*",
-                    "https://static.lp.goodgamestudios.com/*"],
+        "matches": ["*://*/*"],
         "js": ["js/contentScript.js"],
-        "all_frames": true,
-        "to_b_del_matches": ["file:///Users/*", 
-          "https://empiremillenniumwars.com/*",
-          "https://game.empiremillenniumwars.com/*",
-          "https://game.empireww3.com/*",
-          "https://empiremillenniumwars.ggs-emw.com/*",
-          "https://static.lp.goodgamestudios.com/*"]
+        "all_frames": true
       }
     ],
     "manifest_version": 2
