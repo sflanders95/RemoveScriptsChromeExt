@@ -3,9 +3,9 @@
 version: 1.01
 theme: jekyll-theme-minimal
 timezone: America/New_York
-title: Empire Millennium Chrome Extension
+title: Remove Annoying Html Tags Chrome Extension
 description: >- # this means to ignore newlines until "baseurl:"
-  Generic Chrome Extension utility for the game Empire Millennium Wars.
+  Generic Chrome Extension utility for to make Web browsing better.
 show_downloads: true
 # image is for seo image (meta="og:image"), logo is in _default template. (left logo for back compatibility)
 image: images/logo.jpg 
@@ -30,7 +30,6 @@ exclude:
   - 'tmp'
 # markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 # testing sln from https://github.community/t5/GitHub-Pages/gitHub-pages-URL-404/m-p/4466#M341
-# thest did not help viewing https://sflanders95.github.io/EmpireMillenniumChatBlockerChromeExt/docs/test.html
 # include: [/docs]
 # include: /docs
 # include: docs

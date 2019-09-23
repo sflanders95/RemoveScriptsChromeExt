@@ -34,7 +34,7 @@
       {
         "matches": ["*://*/*"],
         "js": ["js/contentScript.js"],
-        "all_frames": true
+        "all_frames": false
       }
     ],
     "manifest_version": 2

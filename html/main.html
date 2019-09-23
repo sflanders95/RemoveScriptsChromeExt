@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <script src="../js/jquery-3.3.1.min.js" lang="javascript"></script>
   <script src="../js/main.js" lang="javascript"></script>
-  <script src="../js/options.js" lang="javascript"></script>
+  <!--script src="../js/options.js" lang="javascript"></script-->
   <link rel="stylesheet" type="text/css" href="../css/main.css"/>
 </head>
 <body>
@@ -21,30 +21,22 @@
 <div id="pnlMain">
 <div class="main-outer">
   <div class="main-inner">
-
-    <div class="inline-flex">  
-    <div id="divNewBookmark" class="heading">Actions:</div>
-      <!-- <div class="right toggleBtn"><span id="btnOpenBulk" class="link pointer" 
-          title="Open Bulk Input Screen">Goto Bulk Input</span></span></div> -->
-    </div>      
+    <div id="divBookmarks" class="heading">Actions:</div>   
     
     <div>
       Choose the tags that you wish to remove from the current document:
     </div>
-    <br/>
-    <div>
+    
+    <div id="checkBoxes">
+    <!-- <br/><div>
       <div class="checkboxContainer"><input type="checkbox" checked id="cbscript"> <label for="cbscript"> &lt;script&gt; </label></div>
       <div class="checkboxContainer"><input type="checkbox" checked id="cbiframe"> <label for="cbiframe"> &lt;iframe&gt; </label></div>
       <div class="checkboxContainer"><input type="checkbox" checked id="cbvideo"> <label for="cbvideo"> &lt;video&gt; </label></div>
+    </div> -->
     </div>
-    <br/>
-    <div>
-      <div class="checkboxContainer"><input type="checkbox" id="cbembed"> <label for="cbembed"> &lt;embed&gt; </label></div>
-      <div class="checkboxContainer"><input type="checkbox" id="cbstyle"> <label for="cbstyle"> &lt;style&gt; </label></div>
-      <div class="checkboxContainer"><input type="checkbox" id="cblink"> <label for="cblink"> &lt;link&gt; </label></div>
-    </div>
+
     <div class="right">
-      <button id="btnRemove" title="Removed Selected Html Tags" class="btn">Remove Tags</button>
+      <button id="btnRemove" title="Removed Selected Html Tags" class="btn rightMargin10">Remove Tags</button>
     </div>
   </div>
 </div>
@@ -52,24 +44,31 @@
 <div class="main-outer">
   <div class="main-inner">
     <div id="divBookmarks" class="heading">Status:</div>
-    <div class="leftMargin10">
-      <span id="totscript">0</span> script tags removed.  <span id="remscript">0</span> found.
+    <br/>
+
+    <div id="statusContainer">
+
+      <div class="leftMargin10">
+        <span id="totscript">0</span> script tags removed.  <span id="remscript">0</span> found.
+      </div>
+      <div class="leftMargin10">
+        <span id="totiframe">0</span> iframe tags removed.  <span id="remiframe">0</span> found.
+      </div>
+      <div class="leftMargin10">
+        <span id="totvideo">0</span> video tags removed.  <span id="remvideo">0</span> found.
+      </div>
+      <div class="leftMargin10">
+        <span id="totembed">0</span> embed tags removed.  <span id="remembed">0</span> found.
+      </div>
+      <div class="leftMargin10">
+        <span id="totstyle">0</span> style tags removed.  <span id="remstyle">0</span> found.
+      </div>
+      <div class="leftMargin10">
+        <span id="totlink">0</span> link tags removed.  <span id="remlink">0</span> found.
+      </div>
+
     </div>
-    <div class="leftMargin10">
-      <span id="totiframe">0</span> iframe tags removed.  <span id="remiframe">0</span> found.
-    </div>
-    <div class="leftMargin10">
-      <span id="totvideo">0</span> video tags removed.  <span id="remvideo">0</span> found.
-    </div>
-    <div class="leftMargin10">
-      <span id="totembed">0</span> embed tags removed.  <span id="remembed">0</span> found.
-    </div>
-    <div class="leftMargin10">
-      <span id="totstyle">0</span> style tags removed.  <span id="remstyle">0</span> found.
-    </div>
-    <div class="leftMargin10">
-      <span id="totlink">0</span> link tags removed.  <span id="remlink">0</span> found.
-    </div>
+
     <div><br/></div>
   </div>
 </div>

@@ -1,7 +1,18 @@
 'use strict';
-const _Version=parseFloat(1.01);
 var _DEBUG;
 var _Manifest;
+
+//              tagName      Default/current CheckedStatus     Tallies
+var _Tags = [ {"name":"script", "checked": true, "TotalRemoved": 0, "NumDeleted":0, "NumFound": 0},
+              {"name":"iframe", "checked": true, "TotalRemoved": 0, "NumDeleted":0, "NumFound": 0},
+              {"name":"video",  "checked": true, "TotalRemoved": 0, "NumDeleted":0, "NumFound": 0},
+              {"name":"embed",  "checked": true, "TotalRemoved": 0, "NumDeleted":0, "NumFound": 0},
+              {"name":"style",  "checked":false, "TotalRemoved": 0, "NumDeleted":0, "NumFound": 0},
+              {"name":"link",   "checked":false, "TotalRemoved": 0, "NumDeleted":0, "NumFound": 0} ];
+
+
+var _LastResponse;
+
 
 /* US🇺🇸 france🇫🇷 germany🇩🇪 Mexico🇲🇽 */
 var sDefaults = {
@@ -48,16 +59,15 @@ document.addEventListener("DOMContentLoaded", function() {
   setDebug(false);
   LOG('ChromeExt:main.js init()');
   
+  updateTagStatus();
+  DrawTextBoxes();
+  DrawStatus(); // todo: wrap in a timer...
+
   /* Update Labels and helptext based on lang  */
   // resetLangDependentText()
 
   /* Add Page Events.   ***/
   document.getElementById('btnRemove').addEventListener('click', removeTags);
-  // $('#divLang').click(toggleLang);
-  // $('#divSettings').click(toggleSettings);
-  
-  // $(document.body).delegate('input:text', 'keypress', function(e) {
-  //     if (e.which === 13) { e.preventDefault(); addBookmark(); } });
 
 
   $('#pnlMain').fadeIn();
@@ -67,21 +77,82 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function removeTags() {
   setStatus('removing tags');
+  // var msg = Object.create(_Message);
+  _Tags.forEach((tag)=> {
+    tag.checked = $('#cb' + tag.name)[0].checked;
+  });
+  var msg = {"command":"REMOVE", "tags": _Tags};
+  SendContentScriptMessage(msg);
+
+  // msg.script = $('#cbscript')[0].checked ? 1 : 0;
+  LOG(msg.toString());
+  return msg;
 }
 
+function updateTagStatus() {
+  var msg = {"command":"UPDATE", "tags": _Tags };
+  SendContentScriptMessage(msg);
+}
 
-function SendContentScriptMessage()
+function SendContentScriptMessage(msg)
 {
-  chrome.tabs.sendMessage(tabs[0].id, msg, function(response) {
-    setStatus('main.js: response to move: ' + response);
-    console.log(new Date().toISOString() + 'TestBtn: response=' + response||'null');
-    if (response && response.toString().indexOf('Err') == -1)
-      window.close();
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, msg, function(response) {
+      setStatus('main.js: response to msg was: ' + response);
+      console.log(new Date().toISOString() + 'updateTagStatus: response=' + response||'null');
+      if (response['tags'])
+         _Tags = response['tags'];
+      _LastResponse = response;
+      DrawStatus();
+    });
   });
 }
 
-function createMessage() {
-  return msg = { "script": 0, "iframe": 0, "video": 0, "embed": 0, "style": 0, "link": 0, "tag": "" };
+
+
+function DrawTextBoxes() {
+  var container = $('#checkBoxes')[0];
+  container.hidden = true;
+  var counter = 0;
+  var groupDiv;
+  _Tags.forEach((tag)=> {
+    if (counter == 0) {
+      groupDiv = document.createElement('div');
+      container.appendChild(cdefs('<br />'));
+      container.appendChild(groupDiv);
+      counter++;
+    } else {
+      counter = (counter == 2) ? 0 : counter + 1;
+    }
+    var str = '<div class="checkboxContainer"><input type="checkbox" ' + (tag.checked ? 'checked ':'')  + 
+              'id="cb' + tag.name + '"> &nbsp; &lt; <label class="tagName" for="cb' + tag.name + 
+              '"> ' + tag.name + ' </label> &gt; </div>';
+    groupDiv.appendChild(cdefs(str));
+  });
+  $('#checkBoxes').fadeIn(3000);
+}
+
+function DrawStatus() {
+  var container = $('#statusContainer')[0];
+  $('#statusContainer').text('');
+  container.hidden = true;
+
+  _Tags.forEach((tag)=> {
+    var str = '<div class="leftMargin10"><span class="totRemoved">' + tag.NumDeleted +
+              '</span> &lt;<span class="tagName">' + tag.name + '</span>&gt; tags removed.  <span class="tagsFound">' +
+              tag.NumFound + '</span> found.</div>';
+    container.appendChild(cdefs(str));
+  });
+  $('#statusContainer').fadeIn();
+}
+
+function getTagCount(tagName) {
+  return 42;
+}
+/*
+
+function cdefs(s){
+  var d = document.createElement('div');
 }
 
 function toggleLang() {
@@ -100,28 +171,28 @@ function toggleSettings() {
     $('#pnlGenSettings').fadeIn(); 
   } else {
     $('#pnlBookMkMain').fadeIn(); 
-    /* $('#pnlBookMkBulk').fadeOut(); */
     $('#pnlGenSettings').fadeOut(); 
   }
 }
+*/
 
-function resetLangDependentText() {
-  /* Set Language dependent Labels: */
-  document.getElementById('divLang').innerText = gStr('flag');
-  document.getElementById('divLang').title = gStr('flag') + ' ' + gStr('flagHelpText');
-  document.getElementById('btnAdd').innerText = gStr('btnAdd');
-  document.getElementById('btnAdd').title = gStr('btnAddHelpText');
-  document.getElementById('txtBMName').title = gStr('txtBMNameHelpText');
-  document.getElementById('txtCoordX').title = gStr('txtCoordXHelpText');
-  document.getElementById('txtCoordY').title = gStr('txtCoordYHelpText');
-  document.getElementById('divNewBookmark').innerText = gStr('divNewBookmark');
-  document.getElementById('divBookmarks').innerText = gStr('divBookmarks');
-  document.getElementById('divBulkEditLbl').innerText = gStr('divBulkEditLbl');
-  $('#btnOpenBulk').text(gStr('btnOpenBulk'));
-  $('#btnOpenBulk').prop('title', gStr('btnOpenBulkHelpText'));
-  $('#btnCloseBulk').text(gStr('btnCloseBulk'));
-  $('#btnCloseBulk').prop('title', gStr('btnCloseBulkHelpText'));
-}
+function resetLangDependentText() { ; }
+//   /* Set Language dependent Labels: */
+//   document.getElementById('divLang').innerText = gStr('flag');
+//   document.getElementById('divLang').title = gStr('flag') + ' ' + gStr('flagHelpText');
+//   document.getElementById('btnAdd').innerText = gStr('btnAdd');
+//   document.getElementById('btnAdd').title = gStr('btnAddHelpText');
+//   document.getElementById('txtBMName').title = gStr('txtBMNameHelpText');
+//   document.getElementById('txtCoordX').title = gStr('txtCoordXHelpText');
+//   document.getElementById('txtCoordY').title = gStr('txtCoordYHelpText');
+//   document.getElementById('divNewBookmark').innerText = gStr('divNewBookmark');
+//   document.getElementById('divBookmarks').innerText = gStr('divBookmarks');
+//   document.getElementById('divBulkEditLbl').innerText = gStr('divBulkEditLbl');
+//   $('#btnOpenBulk').text(gStr('btnOpenBulk'));
+//   $('#btnOpenBulk').prop('title', gStr('btnOpenBulkHelpText'));
+//   $('#btnCloseBulk').text(gStr('btnCloseBulk'));
+//   $('#btnCloseBulk').prop('title', gStr('btnCloseBulkHelpText'));
+// }
 
 /* Is the active tab one of the ones we pay attention to? */
 function isURLAllowed(sUrl) {
@@ -215,6 +286,6 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-127176852-1', 'auto');
 ga('send', 'pageview', '/EMWChromeExt.html');
 }
-/*****************************************************************************
+/* ****************************************************************************
  * End: Logging Functions                                                    *
- *****************************************************************************/
+ **************************************************************************** */

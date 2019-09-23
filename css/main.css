@@ -164,7 +164,7 @@ body {
     border-color: #3e8f3e;
     border-radius: 5px;
     text-align: center;
-    width: 90px;
+    width: 100px;
     align-content: center;
     margin-left: 10px;
 }
@@ -174,3 +174,5 @@ body {
     font-family: Lucida Console, Courier, monospace;
 }
 .leftMargin10 { margin-left: 10px; }
+.rightMargin10 { margin-right: 10px; }
+.tagName { color: #c00; }
