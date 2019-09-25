@@ -55,6 +55,11 @@ body {
     font-size: large;
 }
 
+.ctr {
+    text-align: center;
+    align-content: center;
+}
+
 .right {
     text-align: right;
     align-content: right;
@@ -106,6 +111,7 @@ body {
     background-image: linear-gradient(to bottom, #7cd87c 0%, #61a661 100%);
     border-color: #3e8f3e;
     border-radius: 5px;
+    padding: 0 4px 0 4px;
 }
 
 .pointer {
@@ -176,3 +182,12 @@ body {
 .leftMargin10 { margin-left: 10px; }
 .rightMargin10 { margin-right: 10px; }
 .tagName { color: #c00; }
+.statCell {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #3e8f3e;
+    text-align: right;
+    align-content: right;
+    margin-left: 10px;
+    padding-right: 10px
+}

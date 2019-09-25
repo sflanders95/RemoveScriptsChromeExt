@@ -136,14 +136,24 @@ function DrawStatus() {
   var container = $('#statusContainer')[0];
   $('#statusContainer').text('');
   container.hidden = true;
+  var str = '<table><tr><th class="btn ctr">Tag</th><th class="btn ctr">Current Count</th>' +
+            '<th class="btn ctr">Recently Deleted</th><th class="btn ctr">Total Deleted</th></tr>';
 
   _Tags.forEach((tag)=> {
-    var str = '<div class="leftMargin10"><span class="totRemoved">' + tag.NumDeleted +
-              '</span> &lt;<span class="tagName">' + tag.name + '</span>&gt; tags removed.  <span class="tagsFound">' +
-              tag.NumFound + '</span> found.</div>';
-    container.appendChild(cdefs(str));
+    // var str = '<div class="leftMargin10"><span class="totRemoved">' + tag.NumDeleted +
+    //           '</span> &lt;<span class="tagName">' + tag.name + '</span>&gt; tags removed.  <span class="tagsFound">' +
+    //           tag.NumFound + '</span> found.</div>';
+    // str += '<tr><td> &lt;<span class="tagName">' + tag.name + '</span>&gt; </td><td><span class="tagsFound">' +
+    //        tag.NumFound + '</span></td><td><span class="totRemoved">' + tag.NumDeleted +
+    //        '</span></td><td><span class="totRemoved">' + tag.TotalRemoved +
+    //        '</span></td></tr>';
+    str += '<tr><td class="statCell"> &lt;<span class="tagName">' + tag.name + '</span> /&gt; </td><td class="statCell tagsFound">' +
+           tag.NumFound + '</td><td class="statCell totRemoved">' + tag.NumDeleted +
+           '</td><td class="statCell totRemoved">' + tag.TotalRemoved + '</td></tr>';
   });
-  $('#statusContainer').fadeIn();
+  str += '</table>';
+  container.appendChild(cdefs(str));
+$('#statusContainer').fadeIn();
 }
 
 function getTagCount(tagName) {

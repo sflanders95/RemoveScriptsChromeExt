@@ -32,6 +32,7 @@ function DeleteTags(tags) {
     if (tag['checked']) {
       tag['NumDeleted'] = deltag(tag['name']);
       tag['TotalRemoved'] += tag['NumDeleted'];
+      tag['NumFound'] = document.getElementsByTagName(tag['name']).length;
       console.log('ContentScript: "' + tag['name'] + '" has ' + num + ' occurances');
     }
   });
