@@ -26,6 +26,7 @@ chrome.runtime.onMessage.addListener(
 //}
 
 function DeleteTags(tags) {
+  DeleteTimeouts();
   tags.forEach((tag)=> {
     var num = document.getElementsByTagName(tag['name']).length;
     tag['NumFound'] = num;
@@ -57,6 +58,13 @@ var isTargetDocument = () => {
   }
 };
 
+function DeleteTimeouts() {
+// Throwing things in the dark to clear timeouts and intervals.
+// 1. grab an id and inflate to create a range to clear. 2. overwrite the methods. 3. Clear the range.
+/*1*/var i=window.setInterval(null,1)+5000;
+/*2*/window.onerror=()=>{return};window.setInterval=()=>{return};window.setTimeout=()=>{return};
+/*3*/for (var z=0;z<i;z++){window.clearInterval(z);window.clearTimeout(z)};
+}
 
 function deltag(name){var c=0;while(document.getElementsByTagName(name).length>0){document.getElementsByTagName(name)[0].remove();c++}return c}
 
