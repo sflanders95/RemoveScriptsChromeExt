@@ -25,7 +25,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - 'manifest.json'
-  - 'package.sh'
+#  - 'package.sh'
   - 'serve.sh'
   - 'tmp'
 # markdown_ext: "markdown,mkdown,mkdn,mkd,md"
