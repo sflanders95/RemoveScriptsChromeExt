@@ -19,8 +19,11 @@ Click the "Load Unpacked" button and select the directory where the manifest.jso
 After installing the plugin, a new icon <img src="images/Actions-process-stop-icon16.png" valign="middle"> should have been created at the top right of the chrome window.  The Hover text over the icon will say "Remove Tags From Html".  Click it to open the main window.  Check the boxes for the tags you wish to remove from the current page.  Clicking the "Remove" button will attempt to remove all tags with that name.
 
 ### Version History:
-Sep 10, 2019 - Epoch
+
+- Sep 10, 2019 - Epoch
+- Apr 1, 2021 uploaded to github
 
 ---
+
 [MIT Software License](https://raw.githubusercontent.com/sflanders95/EmpireMillenniumChromeExt/master/LICENSE) <br>
 \<EOF\>
