@@ -26,3 +26,6 @@ cp html/* $DEST/html
 ls -lF $DEST
 set +x
 date
+
+echo "you can now (in developer mode) add the manifest.json to install as"
+echo "an extension in chrome."
