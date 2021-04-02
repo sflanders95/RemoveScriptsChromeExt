@@ -2,11 +2,14 @@
 <img src="images/logo.jpg" width="300" align="right">
 
 
-A Chrome Extension to remove annoyances on a web page.
+A Chrome Extension to remove annoyances on a web page. Extremely easy way to stop all of the iframe and auto-play videos that are so common these days on websites.  I find it very useful when reading pages linked from news.google.com.
 
-**To Install:**<br>
-**Easiest way** Download the [latest release here][Latest]<br>
-**...Or** Download all of the [source files here][Master]<br>
+### To Install:
+
+**Easiest way** Download the [latest release here][Latest]
+
+**...Or** Download all of the [source files here][Master]
+
 **...Or** use git to make a local clone:
 ```sh
 git clone https://github.com/sflanders95/RemoveScriptsChromeExt
