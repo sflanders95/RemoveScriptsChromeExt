@@ -5,7 +5,9 @@
 A Chrome Extension to remove annoyances on a web page.
 
 **To Install:**<br>
-Download all of the files retaining directory structure.  You can [download the files as a zip archive by clicking here](https://github.com/sflanders95/RemoveScriptsChromeExt/archive/master.zip) or use git to make a local clone:
+**Easiest way** Download the [latest release here][Latest]<br>
+**...Or** Download all of the [source files here][Master]<br>
+**...Or** use git to make a local clone:
 ```sh
 git clone https://github.com/sflanders95/RemoveScriptsChromeExt
 ```
@@ -27,3 +29,6 @@ After installing the plugin, a new icon <img src="images/Actions-process-stop-ic
 
 [MIT Software License](https://raw.githubusercontent.com/sflanders95/EmpireMillenniumChromeExt/master/LICENSE) <br>
 \<EOF\>
+
+[Latest]: https://github.com/sflanders95/RemoveScriptsChromeExt/releases/latest
+[Master]: https://github.com/sflanders95/RemoveScriptsChromeExt/archive/master.zip
