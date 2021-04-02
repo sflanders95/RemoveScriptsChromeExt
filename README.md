@@ -21,7 +21,10 @@ Open Chrome and navigate to: [chrome://extensions](chrome://extensions)
 
 Turn Developer mode on: &nbsp; <img src="images/chromeDevModeOn.png" width="100" valign="middle">
 
-Click the "Load Unpacked" button and select the directory where the manifest.json file is that you just downloaded.  *(if you downloaded the zip file, unzip it so chrome can get to the manifest.json file.)*
+<img src="images/loadbtn.png" width="80" valign="middle"> ⟵
+Click the "Load Unpacked" button and select the directory where the manifest.json file is that you just downloaded.  *(if you downloaded the zip file, unzip it so chrome can get to the `manifest.json` file.)* The directory you select should look similar to this:
+
+<img src="images/dir.png" width="450"> 
 
 After installing the plugin, a new icon <img src="images/Actions-process-stop-icon16.png" valign="middle"> should have been created at the top right of the chrome window.  The Hover text over the icon will say "Remove Tags From Html".  Click it to open the main window.  Check the boxes for the tags you wish to remove from the current page.  Clicking the "Remove" button will attempt to remove all tags with that name.
 
