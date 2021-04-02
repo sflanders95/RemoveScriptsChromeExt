@@ -15,6 +15,8 @@ A Chrome Extension to remove annoyances on a web page. Extremely easy way to sto
 git clone https://github.com/sflanders95/RemoveScriptsChromeExt
 ```
 
+### Now Add It To Chrome:
+
 Open Chrome and navigate to: [chrome://extensions](chrome://extensions)
 
 Turn Developer mode on: &nbsp; <img src="images/chromeDevModeOn.png" width="100" valign="middle">
