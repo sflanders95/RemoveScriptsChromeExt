@@ -15,6 +15,8 @@ A Chrome Extension to remove annoyances on a web page. Extremely easy way to sto
 git clone https://github.com/sflanders95/RemoveScriptsChromeExt
 ```
 
+---
+
 ### Now Add It To Chrome:
 
 Open Chrome and navigate to: [chrome://extensions](chrome://extensions)
@@ -36,7 +38,7 @@ After installing the plugin, a new icon <img src="images/Actions-process-stop-ic
 ---
 
 [MIT Software License](https://raw.githubusercontent.com/sflanders95/EmpireMillenniumChromeExt/master/LICENSE) <br>
-\<EOF\>
+
 
 [Latest]: https://github.com/sflanders95/RemoveScriptsChromeExt/releases/latest
 [Master]: https://github.com/sflanders95/RemoveScriptsChromeExt/archive/master.zip
