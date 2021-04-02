@@ -3,7 +3,7 @@
 _config.yml export-ignore  
 .gitattributes export-ignore  
 .gitignore export-ignore
-package.sh export-ignore
+# package.sh export-ignore
 serve.sh export-ignore
 404.html export-ignore
 /docs export-ignore
