@@ -21,7 +21,7 @@ Open Chrome and navigate to: [chrome://extensions](chrome://extensions)
 
 Turn Developer mode on: &nbsp; <img src="images/chromeDevModeOn.png" width="100" valign="middle">
 
-<img src="images/loadbtn.png" width="80" valign="middle"> ⟵
+<img src="images/loadbtn.png" width="90" valign="middle"> ⟵
 Click the "Load Unpacked" button and select the directory where the manifest.json file is that you just downloaded.  *(if you downloaded the zip file, unzip it so chrome can get to the `manifest.json` file.)* The directory you select should look similar to this:
 
 <img src="images/dir.png" width="450"> 
