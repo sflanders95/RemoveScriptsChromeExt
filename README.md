@@ -32,8 +32,7 @@ After installing the plugin, a new icon <img src="images/Actions-process-stop-ic
 
 ### Version History:
 
-- Sep 10, 2019 - Epoch
-- Apr 1, 2020 uploaded to github
+- Sep 10, 2018 - Epoch, added to github.
 
 ---
 
